@@ -21,7 +21,6 @@ export default class Messanger extends Component {
     getUserDetails(newProps) {
         const userId = newProps.match.params.user;
         const selectedUser = friends.filter(item => item.id.toString() === userId.toString());
-        console.log(selectedUser[0])
         this.setState({user: selectedUser[0]});
     }
 
