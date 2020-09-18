@@ -24,7 +24,7 @@ export default class Profile extends Component {
                     </div>
                     <div className="chat-more-wrap">
                         <div className="chat-img">
-                            <img src={require('../../assets/images/messanger.png')} alt="" />
+                            <img src={require('../../assets/images/messenger.png')} alt="" />
                         </div>
                         <div className="more">...</div>
                     </div>

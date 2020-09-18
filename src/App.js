@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';import './assets/css/style.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Messanger from './components/messanger/messanger';
+import Messenger from './components/messenger/messenger';
 import Profile from './components/profile/profile';
 import Sidebar from './components/sidebar/sidebar';
 import SidebarSub from './components/sidebar/sidebar-sub';
@@ -21,7 +21,7 @@ class App extends Component {
             <section className="center-pannel">
               <Header></Header>
               <Switch>
-                <Route exact path='/message/:user' component={Messanger}></Route>
+                <Route exact path='/message/:user' component={Messenger}></Route>
                 <Route exact path='/help' component={Help}></Route>
                 <Route exact path='/setting' component={Setting}></Route>
                 <Redirect from="/" to="/message/1"></Redirect>

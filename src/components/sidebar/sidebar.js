@@ -51,7 +51,7 @@ export default class Sidebar extends Component {
               <div className="icon-wrapper">
                 <div className="menu-icon" onClick={this.hideInboxMenu}><span className="menu"><img src={require('../../assets/images/menu.svg')} alt="" /></span></div>
                 <div className="whatsapp-icon"><span className="menu"><img src={require('../../assets/images/whatsapp.png')} alt="" /></span></div>
-                <div className="messanger-icon active"><span className="messanger"><img src={require('../../assets/images/messanger.png')} alt="" /></span></div>
+                <div className="messenger-icon active"><span className="messenger"><img src={require('../../assets/images/messenger.png')} alt="" /></span></div>
                 <div className="call-icon"><span className="call"><img src={require('../../assets/images/skype.png')} alt="" /></span></div>
                 <div className="v-icon"><span className="vchat"><img src={require('../../assets/images/vchat.png')} alt="" /></span></div>
                 <div className="new-icon"><span className="new"><img src={require('../../assets/images/new.png')} alt="" /></span></div>

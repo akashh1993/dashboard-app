@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { friends, messages } from "../../assets/contant";
 
-export default class Messanger extends Component {
+export default class Messenger extends Component {
 
     state = {
         user: friends[0],
