@@ -26,6 +26,8 @@ class Header extends Component {
                 const selectedUser = friends.filter(item => item.id.toString() === userId.toString());
                 this.setState({user: selectedUser[0]});
             }
+        } else {
+            this.setState({user: {}});
         }
     }
 
