@@ -1,9 +1,33 @@
 import React, { Component } from "react";
 import IconMenu from '../../assets/menu-icon';
+import { friends } from "../../assets/contant";
+import { withRouter } from 'react-router-dom';
 
-export default class Header extends Component {
+class Header extends Component {
 
-    state = { isMobile: (window.innerWidth <= 1199) };
+    state = { 
+        isMobile: (window.innerWidth <= 1199),
+        user: {}
+    };
+
+    componentDidMount() {
+        this.getUserDetails(this.props);
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.getUserDetails(newProps);
+    }
+
+    getUserDetails(newProps) {
+        if(newProps.location.pathname.includes('/message/')) {
+            const path = newProps.location.pathname.split('/message/');
+            if(path && path.length === 2) {
+                const userId = path[1];
+                const selectedUser = friends.filter(item => item.id.toString() === userId.toString());
+                this.setState({user: selectedUser[0]});
+            }
+        }
+    }
 
     toggleMenu = () => {
         let nav = document.querySelector('.left-pannel');
@@ -39,8 +63,8 @@ export default class Header extends Component {
                 </div>
 
                 <div className="person-title">
-                    <span className="msg-person-name">Matt Thompson</span>
-                    <span className="msg-person-status"> is typing ...</span>
+                    <span className="msg-person-name">{this.state.user && this.state.user.name ? this.state.user.name : ''}</span>
+                    <span className="msg-person-status"> {this.state.user && this.state.user.name ? ' is typing ...' : ''}</span>
                 </div>
                 <div className="rate-call-wrap">
                     <div className="rate-us"><span><img src={require('../../assets/images/rate.png')} alt="" /></span></div>
@@ -52,3 +76,4 @@ export default class Header extends Component {
         );
     }
 }
+export default withRouter(Header);

@@ -10,6 +10,21 @@ export default class Messanger extends Component {
         messages: messages
     };
 
+    componentDidMount() {
+        this.getUserDetails(this.props);
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.getUserDetails(newProps);
+    }
+
+    getUserDetails(newProps) {
+        const userId = newProps.match.params.user;
+        const selectedUser = friends.filter(item => item.id.toString() === userId.toString());
+        console.log(selectedUser[0])
+        this.setState({user: selectedUser[0]});
+    }
+
     onTypeMessage = (e) => {
         this.setState({ message: e.target.value })
     }
@@ -52,7 +67,9 @@ export default class Messanger extends Component {
                             return <div className="receive left message" key={i}>
                                 <div className="profile-img-wrap">
                                     <div className="profile-img">
-                                        <img src={require(`../../assets/images/${this.state.user.image}.png`)} alt="" />
+                                        {(this.state.user) ?
+                                            <img src={require(`../../assets/images/${this.state.user.image}.png`)} alt="" />
+                                            : ''}
                                     </div>
                                     <div className="time">{message.time}</div>
                                 </div>
